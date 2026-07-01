@@ -1,36 +1,284 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP4XP6YHF5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZP4XP6YHF5');
-</script>
-  <meta name="google-site-verification" content="FOugHiHn7UwyAIjOQe7qpykbROWjftUtg4_elSxPpCQ" />
   <meta charset="UTF-8">
-  <title>ClarityStack</title>
-   <link rel="icon" type="image/png" sizes="144x144" href="./favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClarityStack — Honest Buying Guides for Indian Homes</title>
+  <meta name="description" content="ClarityStack publishes honest, research-backed buying guides and product comparisons for Indian households. No ads. No sponsored content. Just clear answers.">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="144x144" href="./favicon.png">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP4XP6YHF5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZP4XP6YHF5');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Source Sans 3', sans-serif; background: #fff; color: #1a1a1a; font-size: 18px; line-height: 1.85; }
+
+    /* HEADER */
+    .site-header { border-bottom: 2px solid #1a1a1a; padding: 14px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-name { font-family: 'Lora', serif; font-size: 20px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+    .header-tagline { font-size: 13px; color: #999; letter-spacing: 0.04em; }
+
+    /* HERO */
+    .hero { border-bottom: 2px solid #1a1a1a; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero-left {}
+    .hero-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #999; margin-bottom: 16px; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 700; line-height: 1.1; color: #1a1a1a; letter-spacing: -1px; margin-bottom: 24px; }
+    .hero-title span { font-style: italic; }
+    .hero-desc { font-size: 18px; color: #555; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+    .hero-stats { display: flex; gap: 40px; }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num { font-family: 'Lora', serif; font-size: 32px; font-weight: 700; color: #1a1a1a; line-height: 1; }
+    .stat-label { font-size: 13px; color: #999; margin-top: 4px; }
+    .hero-right { display: flex; flex-direction: column; gap: 16px; }
+    .hero-card { border: 1px solid #eee; padding: 20px 24px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; transition: border-color 0.15s; }
+    .hero-card:hover { border-color: #1a1a1a; }
+    .hero-card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+    .hero-card-title { font-family: 'Lora', serif; font-size: 17px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+    .hero-card-meta { font-size: 13px; color: #bbb; }
+
+    /* MAIN CONTENT */
+    .main-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px 80px; }
+
+    /* SECTION HEADERS */
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid #1a1a1a; padding-bottom: 12px; margin: 64px 0 32px; }
+    .section-title { font-family: 'Lora', serif; font-size: 22px; font-weight: 700; color: #1a1a1a; }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; }
+
+    /* BUYING GUIDES GRID */
+    .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #1a1a1a; border: 2px solid #1a1a1a; }
+    .guide-card { background: #fff; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: background 0.15s; }
+    .guide-card:hover { background: #fafafa; }
+    .guide-card-category { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+    .guide-card-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+    .guide-card-desc { font-size: 15px; color: #666; line-height: 1.6; }
+    .guide-card-cta { font-size: 13px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+
+    /* COMPARISON POSTS */
+    .comparisons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .comparison-card { border: 1px solid #eee; padding: 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; transition: border-color 0.15s; position: relative; }
+    .comparison-card:hover { border-color: #1a1a1a; }
+    .comparison-card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+    .comparison-card-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+    .comparison-card-desc { font-size: 15px; color: #666; line-height: 1.6; }
+    .vs-badge { display: inline-block; background: #1a1a1a; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; letter-spacing: 0.08em; margin-bottom: 4px; width: fit-content; }
+
+    /* ABOUT STRIP */
+    .about-strip { border-top: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; padding: 48px; margin: 64px 0 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
+    .about-item { display: flex; flex-direction: column; gap: 8px; }
+    .about-item-num { font-family: 'Lora', serif; font-size: 40px; font-weight: 700; color: #1a1a1a; line-height: 1; }
+    .about-item-title { font-size: 15px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.06em; }
+    .about-item-desc { font-size: 15px; color: #666; line-height: 1.6; }
+
+    /* FOOTER */
+    .site-footer { border-top: 2px solid #1a1a1a; padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; color: #1a1a1a; }
+    .footer-copy { font-size: 13px; color: #bbb; }
+    .footer-disclosure { font-size: 12px; color: #ccc; max-width: 500px; text-align: right; line-height: 1.5; }
+
+    @media (max-width: 900px) {
+      .site-header { padding: 14px 20px; }
+      .hero { grid-template-columns: 1fr; padding: 48px 20px; gap: 32px; }
+      .hero-stats { gap: 24px; }
+      .main-wrap { padding: 0 20px 60px; }
+      .guides-grid { grid-template-columns: 1fr; }
+      .comparisons-grid { grid-template-columns: 1fr; }
+      .about-strip { grid-template-columns: 1fr; padding: 32px 20px; gap: 32px; }
+      .site-footer { flex-direction: column; gap: 16px; padding: 24px 20px; text-align: center; }
+      .footer-disclosure { text-align: center; }
+    }
+  </style>
 </head>
+<body>
 
-<body style="font-family: Arial; max-width: 800px; margin: auto; padding: 40px;">
+<!-- HEADER -->
+<header class="site-header">
+  <a href="/" class="logo-wrap">
+    <img src="https://raw.githubusercontent.com/claritystack/best-air-fryers-under-5000-india/main/favicon.png" alt="ClarityStack Logo" class="logo-icon">
+    <span class="logo-name">ClarityStack</span>
+  </a>
+</header>
 
-<h1>ClarityStack</h1>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-title">Buy the <span>right</span> thing.<br>First time.</h1>
+    <p class="hero-desc">ClarityStack researches every product category so you do not have to. No ads. No sponsored rankings. No affiliate bias. Just clear, honest answers for Indian buyers.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Buying Guides</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">₹0</span>
+        <span class="stat-label">Paid Placements</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Independent</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <a href="https://claritystack.github.io/best-air-fryers-under-5000-india/" target="_blank" class="hero-card">
+      <span class="hero-card-tag">Kitchen · Buying Guide</span>
+      <span class="hero-card-title">Best Air Fryers Under ₹5,000 in India 2026</span>
+    </a>
+    <a href="https://claritystack.github.io/best-ac-under-30000-india/" target="_blank" class="hero-card">
+      <span class="hero-card-tag">Home Comfort · Buying Guide</span>
+      <span class="hero-card-title">Best AC Under ₹30,000 in India 2026</span>
+    </a>
+    <a href="https://claritystack.github.io/ninja-air-fryer-max-pro-vs-philips-na231/" target="_blank" class="hero-card">
+      <span class="hero-card-tag">Kitchen · Comparison</span>
+      <span class="hero-card-title">Ninja MAX PRO vs Philips NA231: Which Air Fryer Should You Buy?</span>
+      <span class="hero-card-meta">Head-to-head · Updated June 2026</span>
+    </a>
+  </div>
+</section>
 
-<p>Simple, practical guides to help you choose the right products.</p>
+<!-- MAIN -->
+<div class="main-wrap">
 
-<h2>Guides</h2>
+  <!-- BUYING GUIDES -->
+  <div class="section-header">
+    <span class="section-title">Buying Guides</span>
+    <span class="section-label">Research-backed picks</span>
+  </div>
 
-<ul>
-<li>
-<a href="/earbuds-under-2000-noise-cancelling-india/">
-Best Earbuds Under ₹2000 with Noise Cancelling in India
-</a>
-</li>
-</ul>
+  <div class="guides-grid">
+
+    <a href="https://claritystack.github.io/best-air-fryers-under-5000-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Kitchen</span>
+      <span class="guide-card-title">Best Air Fryers Under ₹5,000 in India 2026</span>
+      <span class="guide-card-desc">5 models tested for Indian cooking — pakoras, chicken tikka, and everything in between.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+    <a href="https://claritystack.github.io/best-ac-under-30000-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Home Comfort</span>
+      <span class="guide-card-title">Best AC Under ₹30,000 in India 2026</span>
+      <span class="guide-card-desc">1-ton and 1.5-ton inverter ACs for Indian summers — energy ratings, copper coils, and service networks explained.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+    <a href="https://claritystack.github.io/best-water-purifier-under-10000-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Home</span>
+      <span class="guide-card-title">Best Water Purifiers Under ₹10,000 in India 2026</span>
+      <span class="guide-card-desc">RO vs UV vs UF explained clearly — and five purifiers that actually suit Indian water conditions.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+    <a href="https://claritystack.github.io/best-kitchen-chimney-under-10000-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Kitchen</span>
+      <span class="guide-card-title">Best Chimney for Kitchen Under ₹10,000 in India 2026</span>
+      <span class="guide-card-desc">Baffle filter vs filterless — which one actually survives Indian cooking and how to choose the right one.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+    <a href="https://claritystack.github.io/best-electric-toothbrush-under-2000-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Personal Care</span>
+      <span class="guide-card-title">Best Electric Toothbrush Under ₹2,000 in India 2026</span>
+      <span class="guide-card-desc">Sonic vs oscillating vs battery — what actually cleans better and which models are worth buying.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+    <a href="https://claritystack.github.io/earbuds-under-2000-noise-cancelling-india/" target="_blank" class="guide-card">
+      <span class="guide-card-category">Audio</span>
+      <span class="guide-card-title">Best Earbuds Under ₹2,000 with Noise Cancelling in India 2026</span>
+      <span class="guide-card-desc">ANC vs ENC explained — and the earbuds that genuinely block noise without breaking your budget.</span>
+      <span class="guide-card-cta">Read Guide →</span>
+    </a>
+
+  </div>
+
+  <!-- COMPARISONS -->
+  <div class="section-header">
+    <span class="section-title">Head-to-Head Comparisons</span>
+    <span class="section-label">A vs B — clearly answered</span>
+  </div>
+
+  <div class="comparisons-grid">
+
+    <a href="https://claritystack.github.io/philips-air-fryer-vs-milton-rapid-5l/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Kitchen · Air Fryer</span>
+      <span class="comparison-card-title">Philips NA120 vs Milton Rapid 5L Air Fryer</span>
+      <span class="comparison-card-desc">₹200 price difference, meaningfully different technologies. Which one should you actually buy?</span>
+    </a>
+
+    <a href="https://claritystack.github.io/ninja-air-fryer-max-pro-vs-philips-na231/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Kitchen · Air Fryer</span>
+      <span class="comparison-card-title">Ninja MAX PRO vs Philips NA231/00 Air Fryer</span>
+      <span class="comparison-card-desc">240°C Max Crisp vs patented Rapid Air — which premium air fryer wins for Indian cooking?</span>
+    </a>
+
+    <a href="https://claritystack.github.io/kent-grand-vs-aquaguard-sure-delight-nxt/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Home · Water Purifier</span>
+      <span class="comparison-card-title">Kent Grand vs Aquaguard Sure Delight NXT</span>
+      <span class="comparison-card-desc">UV LED tank vs trusted brand network — the most searched water purifier comparison in India, answered honestly.</span>
+    </a>
+
+    <a href="https://claritystack.github.io/faber-vs-elica-chimney/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Kitchen · Chimney</span>
+      <span class="comparison-card-title">Faber vs Elica Kitchen Chimney</span>
+      <span class="comparison-card-desc">1-year vs 5-year comprehensive warranty. Baffle filter vs filterless. The honest verdict for Indian kitchens.</span>
+    </a>
+
+    <a href="https://claritystack.github.io/lg-t80vbmb4z-vs-samsung-wa80f08s2ltl-washing-machine/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Home · Washing Machine</span>
+      <span class="comparison-card-title">LG T80VBMB4Z vs Samsung WA80F08S2LTL Washing Machine</span>
+      <span class="comparison-card-desc">TurboDrum vs Ecobubble + AI Wash. Same price, very different machines. Which one suits your laundry?</span>
+    </a>
+
+    <a href="https://claritystack.github.io/philips-vs-prestige-mixer-grinder/" target="_blank" class="comparison-card">
+      <span class="vs-badge">VS</span>
+      <span class="comparison-card-tag">Kitchen · Mixer Grinder</span>
+      <span class="comparison-card-title">Philips HL7756 vs Prestige Iris Mixer Grinder</span>
+      <span class="comparison-card-desc">3 jars and 5-year motor warranty vs 4 jars at a lower price. Which one is the better long-term buy?</span>
+    </a>
+
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div class="about-item">
+      <span class="about-item-num">No.</span>
+      <span class="about-item-title">Sponsored Content</span>
+      <span class="about-item-desc">No brand pays to appear on ClarityStack. Every recommendation is based on specs, reviews, and real-world performance data — nothing else.</span>
+    </div>
+    <div class="about-item">
+      <span class="about-item-num">No.</span>
+      <span class="about-item-title">Vague Advice</span>
+      <span class="about-item-desc">Every guide gives a clear recommendation with a specific reason. We tell you exactly which product to buy and why — not just a list of options.</span>
+    </div>
+    <div class="about-item">
+      <span class="about-item-num">No.</span>
+      <span class="about-item-title">Generic Guides</span>
+      <span class="about-item-desc">Every guide is written for Indian conditions — Indian water quality, Indian cooking habits, Indian service networks, and Indian budgets.</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-logo">ClarityStack</span>
+  <span class="footer-copy">© 2026 ClarityStack</span>
+  <span class="footer-disclosure">Disclosure: ClarityStack participates in the Amazon Associates programme. Pages contain affiliate links and we may earn a commission at no extra cost to you. This does not influence our recommendations.</span>
+</footer>
 
 </body>
 </html>
