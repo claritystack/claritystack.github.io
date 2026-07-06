@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://claritystack.github.io/sitemap.xml
