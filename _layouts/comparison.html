@@ -3,7 +3,65 @@ layout: default
 ---
 
 <style>
-  .post-wrap { max-width: 860px; margin: 0 auto; padding: 64px 48px 80px; }
+  /* Max width and margin to match post layout */
+.post-wrap { max-width: 1100px; margin: 0 auto 0 120px; padding: 64px 48px 80px; }
+
+/* Product cards */
+.product-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0 40px; }
+.product-card { border: 2px solid #1a1a1a; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
+.product-card .card-brand { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+.product-card .card-name { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; color: #1a1a1a; line-height: 1.3; }
+.product-card .card-price { font-family: 'Lora', serif; font-size: 24px; font-weight: 700; color: #1a1a1a; }
+.product-card .card-rating { font-size: 15px; color: #555; }
+
+/* Round block */
+.round-block { border-top: 1px solid #eee; padding-top: 20px; margin-top: 20px; }
+.round-winner { display: inline-block; background: #1a1a1a; color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; margin-bottom: 12px; }
+
+/* Verdict box — override existing */
+.verdict-box { border-left: 4px solid #1a1a1a; padding: 20px 24px; background: #fafafa; margin: 28px 0; }
+.verdict-box .verdict-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 8px; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.btn-primary { display: inline-block; background: #1a1a1a; color: #fff; font-weight: 600; font-size: 15px; padding: 11px 22px; text-decoration: none; transition: opacity 0.15s; }
+.btn-primary:hover { opacity: 0.8; }
+.btn-outline { display: inline-block; background: #fff; color: #1a1a1a; border: 2px solid #1a1a1a; font-weight: 600; font-size: 15px; padding: 9px 22px; text-decoration: none; transition: all 0.15s; }
+.btn-outline:hover { background: #1a1a1a; color: #fff; }
+
+/* TOC */
+.toc { border: 1px solid #ddd; border-top: 3px solid #1a1a1a; margin-bottom: 40px; overflow: hidden; }
+.toc-toggle { width: 100%; background: none; border: none; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-family: 'Lora', serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #1a1a1a; text-align: left; }
+.toc-toggle:hover { background: #fafafa; }
+.toc-arrow { font-size: 12px; color: #888; transition: transform 0.2s ease; flex-shrink: 0; }
+.toc-toggle[aria-expanded="true"] .toc-arrow { transform: rotate(180deg); }
+.toc-body { display: none; padding: 0 24px 20px; }
+.toc-body.open { display: block; }
+.toc ol { padding-left: 18px; margin: 0; }
+.toc li { font-size: 15px; color: #444; padding: 4px 0; line-height: 1.5; }
+.toc li a { color: #1a1a1a; text-decoration: none; border-bottom: 1px solid #ddd; }
+.toc li a:hover { border-bottom-color: #1a1a1a; }
+.toc ol ol { margin-top: 4px; padding-left: 16px; list-style-type: lower-alpha; }
+.toc ol ol li { font-size: 14px; color: #666; }
+
+/* Disclosure */
+.disclosure { font-size: 13px; color: #999; padding: 20px 24px; line-height: 1.6; border-top: 1px solid #eee; display: block; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 20px 0 32px; }
+table.compare { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.compare thead tr { background: #1a1a1a; }
+table.compare th { color: #fff; font-size: 12px; font-weight: 600; padding: 10px 14px; text-align: left; letter-spacing: 0.04em; text-transform: uppercase; }
+table.compare td { padding: 12px 14px; border-bottom: 1px solid #eee; vertical-align: middle; color: #2d2d2d; }
+table.compare tbody tr:last-child td { border-bottom: none; }
+table.compare tbody tr:hover { background: #fafafa; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .post-wrap { margin: 0; padding: 24px 16px 60px; }
+  .product-cards { grid-template-columns: 1fr; }
+  .btn-primary, .btn-outline { font-size: 14px; }
+}
   .vs-eyebrow { display: inline-block; background: #1a1a1a; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; letter-spacing: 0.1em; margin-bottom: 16px; }
   .post-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #999; margin-bottom: 16px; }
   .post-title { font-family: 'Lora', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1.15; color: #1a1a1a; letter-spacing: -0.5px; margin-bottom: 16px; }
@@ -39,4 +97,14 @@ layout: default
   <div class="post-body">
     {{ content }}
   </div>
+
+  <script>
+    function toggleTOC(btn) {
+      const body = document.getElementById('toc-body');
+      const isOpen = body.classList.contains('open');
+      body.classList.toggle('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    }
+  </script>
+
 </div>
